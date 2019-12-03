@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Peter Ravn</title>
+	<style>
+		body {
+			margin: 0;
+
+		}
+
+		* {
+			box-sizing: border-box;
+		}
+
+		section {
+			min-height: 100px;
+		}
+
+		main {
+			height: 100vh;
+			display: grid;
+			grid-template-rows: 1fr 2fr 1fr;
+			grid-gap: 10px;
+
+		}
+
+		section {
+			min-height: 100px;
+		}
+
+		.box1 {
+			background: lightgrey;
+			grid-column: span 2;
+		}
+
+		.box2 {
+			background: lightgrey;
+			grid-row: 2;
+		}
+
+		.box3 {
+			border: none;
+			background: white;
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			grid-gap: 10px;
+			padding: 10px;
+		}
+
+		footer {
+			background: lightgrey;
+			grid-row: 2;
+
+		}
+
+		article {
+			background: lightgrey;
+			min-height: 200px;
+			border: none;
+
+		}
+
+		nav {
+			background: grey;
+			display: grid;
+			grid-template-columns: repeat(5, 1fr);
+			grid-auto-rows: auto;
+			grid-gap: 1em;
+			align-items: center;
+			text-align: center;
+			border-bottom: 4px solid black;
+			font-family: sans-serif;
+			color: white;
+		}
+	</style>
+</head>
+
+<body>
+	<nav>
+		<div class="paintings">Paintings</div>
+		<div class="sculptures">Sculptures</div>
+		<div class="materials">Materials</div>
+		<div class="contact"><a href="https://katjsoeg.dk/kea/2_sem_eksamen/designwp/wordpress/contact/">Contact</a></div>
+	</nav>
+	<section class="box1"></section>
+	<section class="box3">
+		<article></article>
+		<article></article>
+		<article></article>
+		<article></article>
+
+
+
+
+
+	</section>
+	<footer>/v Peter Ravn - peterravnmail - Telefon - Instagram - Facebook</footer>
+	<script src="script.js"></script>
+</body></html>
