@@ -2,101 +2,76 @@
 <html lang="da">
 
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Peter Ravn</title>
-	<style>
-		body {
-			margin: 0;
-
-		}
-
-		* {
-			box-sizing: border-box;
-		}
-
-		section {
-			min-height: 100px;
-		}
-
-		main {
-			height: 100vh;
-			display: grid;
-			grid-template-rows: 1fr 2fr 1fr;
-			grid-gap: 10px;
-
-		}
-
-		section {
-			min-height: 100px;
-		}
-
-		.box1 {
-			background: lightgrey;
-			grid-column: span 2;
-		}
-
-		.box2 {
-			background: lightgrey;
-			grid-row: 2;
-		}
-
-		.box3 {
-			border: none;
-			background: white;
-			display: grid;
-			grid-template-columns: repeat(4, 1fr);
-			grid-gap: 10px;
-			padding: 10px;
-		}
-
-		footer {
-			background: lightgrey;
-			grid-row: 2;
-
-		}
-
-		article {
-			background: lightgrey;
-			min-height: 200px;
-			border: none;
-
-		}
-
-		nav {
-			background: grey;
-			display: grid;
-			grid-template-columns: repeat(5, 1fr);
-			grid-auto-rows: auto;
-			grid-gap: 1em;
-			align-items: center;
-			text-align: center;
-			border-bottom: 4px solid black;
-			font-family: sans-serif;
-			color: white;
-		}
-	</style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
-	<nav>
-		<div class="paintings">Paintings</div>
-		<div class="sculptures">Sculptures</div>
-		<div class="materials">Materials</div>
-		<div class="contact"><a href="https://katjsoeg.dk/kea/2_sem_eksamen/designwp/wordpress/contact/">Contact</a></div>
-	</nav>
-	<section class="box1"></section>
-	<section class="box3">
-		<article></article>
-		<article></article>
-		<article></article>
-		<article></article>
 
+    <header id="myTopnav">
+        <div class="topnav">
+            <a href="index.html"></a>
+            <a href="kontakt.html">Contact</a>
+            <a href="materials.html">Materials</a>
+            <a href="galleri.html">Gallery</a>
+            <a href="index.html">Home</a>
+            <a href="script.js" class="icon" onclick="burgerMenu()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+        <div class="border_header"></div>
+    </header>
 
+    <section id="forside">
+        <div class="overskrift">
+            <h1>Peter Rothmeier Ravn</h1>
+        </div>
+        <div class="velkommen">
+            <p>Welcome to my gallery. </p>
+        </div>
 
+    </section>
+    <section id="splash"></section>
 
+    <section id="forside_content">
 
-	</section>
-	<footer>/v Peter Ravn - peterravnmail - Telefon - Instagram - Facebook</footer>
-	<script src="script.js"></script>
-</body></html>
+        <h2>Updates</h2>
+        <div id="testt">
+            <div class="test"></div>
+            <div class="test"></div>
+            <div class="test"></div>
+            <div class="test"></div>
+            <div class="test"></div>
+            <div class="test"></div>
+        </div>
+    </section>
+
+    <footer>
+
+        <div class="kontakt">
+            <p><b>Telephone</b></p>
+            <a href="tel:+45 45261655">+45 26 16 25 55</a>
+        </div>
+
+        <div class="kontakt">
+            <p><b>Email</b></p>
+            <a href="mailto: mail@peterravn.dk">mail@peterravn.dk</a>
+        </div>
+
+        <div class="kontakt">
+            <p><b>Social media</b></p>
+            <a href="https://www.facebook.com/Peter-Rothmeier-Ravn-7157268355/" class="fa fa-facebook"></a>
+            <a href="https://www.instagram.com/peter_rothmeier_ravn/" class="fa fa-instagram"></a>
+
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

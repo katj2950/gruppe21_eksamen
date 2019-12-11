@@ -2,121 +2,139 @@
 <html lang="da">
 
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Peter Ravn</title>
-	<style>
-		body {
-			margin: 0;
 
-		}
 
-		* {
-			box-sizing: border-box;
-		}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sculptures</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
 
-		section {
-			min-height: 100px;
-		}
+    <style>
+        body {
+            margin: 0;
 
-		main {
-			height: 100vh;
-			display: grid;
-			grid-template-rows: 1fr 2fr 1fr;
-			grid-gap: 10px;
+        }
 
-		}
+        * {
+            box-sizing: border-box;
+        }
 
-		section {
-			min-height: 100px;
-		}
+        section {
+            min-height: 100px;
+        }
 
-		.box1 {
-			background: lightgrey;
-			grid-column: span 2;
-		}
+        main {
+            height: 100vh;
+            display: grid;
+            grid-template-rows: 1fr 2fr 1fr;
+            grid-gap: 10px;
 
-		footer {
-			background: lightgrey;
-			grid-row: 2;
-		}
+        }
 
-		.box3 {
-			border: none;
-			background: white;
-			display: grid;
-			grid-template-columns: repeat(4, 1fr);
-			grid-gap: 10px;
-			padding: 10px;
-		}
+        section {
+            min-height: 100px;
+        }
 
-		.box4 {
-			background: grey;
-			grid-column: 2 / span 3;
+        .box1 {
+            background: lightgrey;
+            grid-column: span 2;
+        }
 
-		}
 
-		article {
-			background: lightgrey;
-			min-height: 200px;
-			border: none;
+        .box3 {
+            border: none;
+            background: white;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 10px;
+            padding: 10px;
+        }
 
-		}
+        .box4 {
+            background: grey;
+            grid-column: 2 / span 3;
 
-		nav {
-			background: grey;
-			display: grid;
-			grid-template-columns: repeat(5, 1fr);
-			grid-auto-rows: auto;
-			grid-gap: 1em;
-			align-items: center;
-			text-align: center;
-			border-bottom: 4px solid black;
-			font-family: sans-serif;
-			color: white;
-		}
-	</style>
+        }
+
+        article {
+            background: lightgrey;
+            min-height: 200px;
+            border: none;
+
+        }
+
+        nav {
+            background: grey;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-auto-rows: auto;
+            grid-gap: 1em;
+            align-items: center;
+            text-align: center;
+            border-bottom: 4px solid black;
+            font-family: sans-serif;
+            color: white;
+        }
+    </style>
 </head>
 
 <body>
 
-	<!-- Burger menu som vises i mobil version -->
-	<div id="mobilnav" class="sidenav">
-		<a id="kryds" class="closebtn">&times;</a>
-		<a href="index.html">Forside</a>
-
-	</div>
-
-	<!-- banner-->
-
-	<section class="box1"></section>
-	<!-- Hoved menu browser -->
-
-	<nav>
-		<div class="home">Home</div>
-		<div class="paintings">Paintings</div>
-		<div class="sculptures">Sculptures</div>
-		<div class="materials">Materials</div>
-		<div class="contact">Contact</div>
-	</nav>
+    <header id="myTopnav">
+        <div class="topnav">
+            <a href="index.html"></a>
+            <a href="kontakt.html">Contact</a>
+            <a href="materials.html">Materials</a>
+            <a href="galleri.html">Gallery</a>
+            <a href="index.html">Home</a>
+            <a href="script.js" class="icon" onclick="burgerMenu()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+        <div class="border_header"></div>
+    </header>
 
 
-	<!-- navigation galleri side-->
 
 
-	<section class="box3">
-		<article></article>
-		<article></article>
-		<article></article>
-		<article></article>
-		<article></article>
-		<article></article>
-		<article></article>
-		<article></article>
 
-		<!-- galleri område-->
 
-	</section>
-	<footer>/v Peter Ravn - peterravnmail - Telefon - Instagram - Facebook</footer>
-	<script src="script.js"></script>
-</body></html>
+    <!-- navigation galleri side-->
+
+
+    <section class="box3">
+        <article></article>
+        <article></article>
+        <article></article>
+        <article></article>
+        <article></article>
+        <article></article>
+        <article></article>
+        <article></article>
+
+        <!-- galleri område-->
+
+    </section>
+    <footer id="info">
+
+        <div class="kontakt">
+            <p><b>Telephone</b></p>
+            <a href="tel:+45 45261655">+45 26 16 25 55</a>
+        </div>
+
+        <div class="kontakt">
+            <p><b>Email</b></p>
+            <a href="mailto: mail@peterravn.dk">mail@peterravn.dk</a>
+        </div>
+
+        <div class="kontakt">
+            <p><b>Email</b></p>
+            <a href="mailto: mail@peterravn.dk">mail@peterravn.dk</a>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>
