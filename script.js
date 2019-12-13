@@ -1,3 +1,4 @@
+/*
 let side;
 const url = "https://katjsoeg.dk/kea/2_sem_eksamen/designwp/wordpress/wp-json/wp/v2/pages/";
 
@@ -18,13 +19,14 @@ function vis() {
     document.querySelector("navn").textcontent = side.title.rendered;
     document.querySelector("navn").innerHTML = side.content.rendered;
 }
+*/
 
 
 function burgerMenu() {
-    var x = document.getElementById("myTopnav");
-    if (x.className === "topnav") {
-        x.className += " responsive";
+    var burger = document.getElementById("myTopnav");
+    if (burger.className === "topnav") {
+        burger.className += " responsive";
     } else {
-        x.className = "topnav";
+        burger.className = "topnav";
     }
 }
