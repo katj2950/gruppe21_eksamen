@@ -201,9 +201,16 @@ a.fa-instagram {
 
 
 @media screen and (max-width: 700px) {
+<<<<<<< HEAD
 	.topnav a:not(:first-child) {
 		display: none;
 	}
+=======
+
+    .topnav a:not(:first-child) {
+        display: none;
+    }
+>>>>>>> origin/master
 
 	.topnav a.icon {
 		float: right;
@@ -221,11 +228,19 @@ a.fa-instagram {
 		top: 0;
 	}
 
+<<<<<<< HEAD
 	.topnav.responsive a {
 		float: none;
 		display: block;
 		text-align: left;
 	}
+=======
+    .topnav.responsive a {
+        float: none;
+        display: block;
+        text-align: center;
+    }
+>>>>>>> origin/master
 
 	.billede_peter {
 		display: flex;
@@ -246,6 +261,7 @@ a.fa-instagram {
 /*-------Desktop skærme-----*/
 
 @media screen and (min-width: 700px) {
+<<<<<<< HEAD
 	.topnav a:first-child {
 		background-image: url(logo2.png);
 		background-size: cover;
@@ -277,3 +293,36 @@ a.fa-instagram {
 }
 
 /*--- galleri ---*/
+=======
+    .topnav a:first-child {
+        background-image: url(logo2.png);
+        background-size: cover;
+        position: relative;
+        width: 7.2vw;
+        height: 4vw;
+    }
+
+    .topnav a:not(:first-child) {
+        padding-top: 2vw;
+        float: right;
+        position: relative;
+    }
+
+
+    .kontakt {
+        flex-basis: 200px;
+    }
+
+    a.fa-facebook,
+    a.fa-instagram {
+        color: white;
+        text-decoration: none;
+        font-size: 2vw;
+        height: 1vw;
+        width: 1vw;
+        margin-left: 1vw;
+        margin-right: 1vw;
+    }
+
+}
+>>>>>>> origin/master
