@@ -4,122 +4,163 @@
 
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Gallery</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
 </head>
 <style>
-    body {
-        margin: 0;
+	body {
+		margin: 0;
 
-    }
+	}
 
-    * {
-        box-sizing: border-box;
-    }
+	* {
+		box-sizing: border-box;
+	}
 
-    section {
-        min-height: 100px;
-    }
+	section {
+		min-height: 100px;
+	}
 
-    main {
-        height: 100vh;
-        display: grid;
-        grid-template-rows: 1fr 2fr 1fr;
-        grid-gap: 10px;
+	main {
+		height: 100vh;
+		display: grid;
+		grid-template-rows: 1fr 2fr 1fr;
+		grid-gap: 10px;
 
-    }
+	}
 
-    section {
-        min-height: 100px;
-    }
+	section {
+		min-height: 100px;
+	}
 
 
 
-    .box3 {
-        border: none;
-        background: white;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-gap: 10px;
-        padding: 10px;
-    }
+	.box3 {
+		border: none;
+		background: white;
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		grid-gap: 10px;
+		padding: 10px;
+	}
 
-    .box4 {
-        background: grey;
-        grid-column: 2 / span 3;
+	.box4 {
+		background: grey;
+		grid-column: 2 / span 3;
 
-    }
+	}
 
-    article {
-        background: lightgrey;
-        min-height: 200px;
-        border: none;
+	article {
+		background: lightgrey;
+		min-height: 200px;
+		border: none;
 
-    }
+	}
 </style>
 
 
 <body>
 
-    <header id="myTopnav">
-        <div class="topnav">
-            <a href="index.html"></a>
-            <a href="kontakt.html">Contact</a>
-            <a href="materials.html">Materials</a>
-            <a href="galleri.html">Gallery</a>
-            <a href="index.html">Home</a>
-            <a href="script.js" class="icon" onclick="burgerMenu()">
-                <i class="fa fa-bars"></i>
-            </a>
-        </div>
-        <div class="border_header"></div>
-    </header>
+	<header id="myTopnav">
+		<div class="topnav">
+			<a href="index.html"></a>
+			<a href="kontakt.html">Contact</a>
+			<a href="materials.html">Materials</a>
+			<a href="galleri.html">Gallery</a>
+			<a href="index.html">Home</a>
+			<a href="script.js" class="icon" onclick="burgerMenu()">
+				<i class="fa fa-bars"></i>
+			</a>
+		</div>
+		<div class="border_header"></div>
+	</header>
 
 
 
 
-    <!-- navigation galleri side-->
-    <section id="galleri_content">
-        <h1>Gallery</h1>
-    </section>
+	<!-- navigation galleri side-->
+	<section id="galleri_content">
+		<h1>Gallery</h1>
+	</section>
 
-    <section class="box3">
-        <article></article>
-        <article></article>
-        <article></article>
-        <article></article>
-        <article></article>
-        <article></article>
-        <article></article>
-        <article></article>
+	<section class="galleri">
+		<!-- galleri område-->
 
-        <!-- galleri område-->
+	</section>
+	<footer id="info">
 
-    </section>
-    <footer id="info">
+		<div class="kontakt">
+			<p><b>Telephone</b></p>
+			<a href="tel:+45 45261655">+45 26 16 25 55</a>
+		</div>
 
-        <div class="kontakt">
-            <p><b>Telephone</b></p>
-            <a href="tel:+45 45261655">+45 26 16 25 55</a>
-        </div>
+		<div class="kontakt">
+			<p><b>Email</b></p>
+			<a href="mailto: mail@peterravn.dk">mail@peterravn.dk</a>
+		</div>
 
-        <div class="kontakt">
-            <p><b>Email</b></p>
-            <a href="mailto: mail@peterravn.dk">mail@peterravn.dk</a>
-        </div>
+		<div class="kontakt">
+			<p><b>Social media</b></p>
+			<a href="https://www.facebook.com/Peter-Rothmeier-Ravn-7157268355/" class="fa fa-facebook"></a>
+			<a href="https://www.instagram.com/peter_rothmeier_ravn/" class="fa fa-instagram"></a>
 
-        <div class="kontakt">
-            <p><b>Social media</b></p>
-            <a href="https://www.facebook.com/Peter-Rothmeier-Ravn-7157268355/" class="fa fa-facebook"></a>
-            <a href="https://www.instagram.com/peter_rothmeier_ravn/" class="fa fa-instagram"></a>
+		</div>
+	</footer>
+	<template class="template_img">
+		<article>
+			<h2 class="title"></h2>
+			<figure>
+				<img src="" alt="">
+				<figcaption class="caption"></figcaption>
+			</figure>
+		</article>
 
-        </div>
-    </footer>
-    <script src="script.js"></script>
-</body>
+	</template>
+	<script>
+		let paintings;
+		const url = "https://katjsoeg.dk/kea/2_sem_eksamen/designwp/wordpress/wp-json/wp/v2/paintings";
 
-</html>
+		document.addEventListener("DOMContentLoaded", start);
+
+		function start() {
+			console.log("start");
+			hentJson();
+		}
+
+		async function hentJson() {
+			const response = await fetch(url);
+			console.log(response);
+
+			paintings = await response.json();
+			console.log(paintings);
+			vis();
+		}
+
+
+
+		function vis() {
+
+			const template = document.querySelector(".template_img");
+			const galleri = document.querySelector(".galleri");
+
+			paintings.forEach(painting => {
+
+				console.log(painting);
+				const klon = template.cloneNode(true).content;
+				klon.querySelector(".title").textContent = painting.title.rendered;
+				klon.querySelector("img").src = painting.billede.guid;
+				klon.querySelector("img").alt = painting.title.rendered;
+				console.log(klon.querySelector(".caption"));
+
+				klon.querySelector(".caption").textContent = painting.kort_tekst;
+				galleri.appendChild(klon);
+
+			});
+
+		}
+	</script>
+</body></html>
