@@ -267,6 +267,7 @@ a.fa-instagram {
     }
 
     .topnav a:not(:first-child) {
+        padding-top: 2vw;
         float: right;
         position: relative;
     }
