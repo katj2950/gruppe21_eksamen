@@ -21,44 +21,93 @@
         box-sizing: border-box;
     }
 
-    section {
-        min-height: 100px;
+    img {
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
     }
 
-    main {
-        height: 100vh;
+    .galleri {
+        text-align: center;
         display: grid;
-        grid-template-rows: 1fr 2fr 1fr;
-        grid-gap: 10px;
-
-    }
-
-    section {
-        min-height: 100px;
-    }
-
-
-
-    .box3 {
-        border: none;
-        background: white;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-gap: 10px;
-        padding: 10px;
-    }
-
-    .box4 {
-        background: grey;
-        grid-column: 2 / span 3;
-
+        grid-gap: 30px;
+        /*i mobile version er der 1 kolonne*/
+        grid-template-columns: repeat(1, 1fr);
+        max-width: 980px;
+        margin: 0 auto;
+        color: rgba(0, 0, 0, 0.65);
     }
 
     article {
-        background: lightgrey;
-        min-height: 200px;
-        border: none;
+        box-shadow: 0 3px 5px 2px rgba(0, 0, 0, 0.08);
+    }
 
+    /*når skærmen er mindre end 700px, vil der være 2 kolonner */
+    @media screen and (max-width: 700px) {
+        .galleri {
+            grid-template-columns: repeat(1, 1fr);
+        }
+
+        article {
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.08);
+        }
+
+    }
+
+    /*når skærmen er større end 700px, vil der være 3 kolonner */
+    @media screen and (min-width: 700px) {
+        .galleri {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    #popup {
+        position: fixed;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, .8);
+        display: none;
+        z-index: 3;
+        /*gør så man kan scrolle på pop up, og læse resterende info*/
+        overflow: scroll;
+    }
+
+    .indhold {
+        width: 50vw;
+        min-height: 40vh;
+        margin: 4rem auto;
+        padding: 10px;
+        color: white;
+        text-align: center;
+    }
+
+
+    .luk {
+        position: fixed;
+        /*sætter krydset i øverste højre hjørne*/
+        right: 1vw;
+        top: 1vw;
+        font-size: 2rem;
+        cursor: pointer;
+        background-color: transparent;
+        color: white;
+        border: none;
+    }
+
+    .luk:hover {
+        background-color: rgba(0, 0, 0, .4);
+    }
+
+
+    @media screen and (max-width: 700px) {
+        .indhold {
+            width: 100%;
+        }
+
+        .liste {
+            margin: 3vw;
+        }
     }
 
 </style>
@@ -88,10 +137,36 @@
         <h1>Gallery</h1>
     </section>
 
+    <template class="template_img">
+        <article>
+            <h2 class="title"></h2>
+            <figure>
+                <img src="" alt="">
+                <figcaption class="caption"></figcaption>
+            </figure>
+        </article>
+
+    </template>
+
+    <div id="popup">
+        <button class="luk">X</button>
+        <section class="indhold">
+            <!--de informationer der skal vises når pop up bliver åbnet-->
+            <article class="menu">
+                <h2 class="title"></h2>
+                <img src="" alt="">
+            </article>
+        </section>
+    </div>
+
     <section class="galleri">
         <!-- galleri område-->
 
     </section>
+
+
+
+
     <footer id="info">
 
         <div class="kontakt">
@@ -111,16 +186,9 @@
 
         </div>
     </footer>
-    <template class="template_img">
-        <article>
-            <h2 class="title"></h2>
-            <figure>
-                <img src="" alt="">
-                <figcaption class="caption"></figcaption>
-            </figure>
-        </article>
 
-    </template>
+    <script src="script.js"></script>
+
     <script>
         let paintings;
         const url = "https://katjsoeg.dk/kea/2_sem_eksamen/designwp/wordpress/wp-json/wp/v2/paintings";
@@ -160,8 +228,34 @@
                 klon.querySelector(".caption").textContent = painting.kort_tekst;
                 galleri.appendChild(klon);
 
+                galleri.lastElementChild.addEventListener("click", () => {
+                    visSingle(painting);
+                });
+
+
             });
 
+
+
+        }
+
+
+        function visSingle(painting) {
+            //pop up vinduet vises
+            document.querySelector("#popup").style.display = "block";
+            //når der trykkes på .luk, lukkes vinduet
+            document.querySelector("#popup .luk").addEventListener("click", lukSingle);
+
+            //her tilføjes de informationer der skal være i .indhold
+            document.querySelector(".menu .title").textContent = painting.title.rendered;
+
+            document.querySelector(".menu img").src = painting.billede.guid;
+            document.querySelector(".menu img").alt = painting.title.rendered;
+        }
+
+        function lukSingle() {
+            //pop up siden vises ikke længere
+            document.querySelector("#popup").style.display = "none";
         }
 
     </script>

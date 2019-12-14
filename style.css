@@ -195,6 +195,7 @@ a.fa-instagram {
 }
 
 
+
 /*--------------MEDIA QUERIES------------*/
 
 /*-------Mobile-----*/
@@ -252,7 +253,9 @@ a.fa-instagram {
         width: 90vw;
     }
 
-
+    article {
+        box-shadow: inherit;
+    }
 }
 
 /*-------Desktop skærme-----*/
