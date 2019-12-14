@@ -4,222 +4,140 @@
 
 
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Materials</title>
-	<link rel="stylesheet" href="style.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materials</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
 </head>
 <style>
-	body {
-		margin: 0;
+    body {
+        margin: 0;
 
-	}
+    }
 
-	* {
-		box-sizing: border-box;
-	}
+    * {
+        box-sizing: border-box;
+    }
 
-	section {
-		min-height: 100px;
-	}
+    main {
+        height: 100vh;
+        display: grid;
+        grid-template-rows: 1fr 2fr 1fr;
+        grid-gap: 10px;
 
-	main {
-		height: 100vh;
-		display: grid;
-		grid-template-rows: 1fr 2fr 1fr;
-		grid-gap: 10px;
-
-	}
-
-	section {
-		min-height: 100px;
-	}
+    }
 
 
-	.box3 {
-		border: none;
-		background: white;
-		display: grid;
-		grid-template-columns: repeat(4, 1fr);
-		grid-gap: 10px;
-		padding: 10px;
-	}
-
-	.box4 {
-		background: grey;
-		grid-column: 2 / span 3;
-
-	}
-
-	article {
-		background: lightgrey;
-		min-height: 200px;
-		border: none;
+    article {
+        background: lightgrey;
+        min-height: 200px;
+        border: none;
 </style>
 
 
 <body>
 
 
-	<header id="myTopnav">
-		<div class="topnav">
-			<a href="index.html"></a>
-			<a href="kontakt.html">Contact</a>
-			<a href="materials.html">Materials</a>
-			<a href="galleri.html">Gallery</a>
-			<a href="index.html">Home</a>
-			<a href="script.js" class="icon" onclick="burgerMenu()">
-				<i class="fa fa-bars"></i>
-			</a>
-		</div>
-		<div class="border_header"></div>
-	</header>
+    <header id="myTopnav">
+        <div class="topnav">
+            <a href="index.html"></a>
+            <a href="kontakt.html">Contact</a>
+            <a href="materials.html">Materials</a>
+            <a href="galleri.html">Gallery</a>
+            <a href="index.html">Home</a>
+            <a href="script.js" class="icon" onclick="burgerMenu()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+        <div class="border_header"></div>
+    </header>
 
 
 
 
-	<!-- navigation galleri side-->
-	<section id="materials_content">
-		<h1>Materials</h1>
-	</section>
+    <!-- navigation galleri side-->
+    <section id="materials_content">
+        <h1>Materials</h1>
+    </section>
 
-	<section class="tekst">
-
-
-		<!-- tekst område-->
-
-	</section>
-	<footer id="info">
-
-		<div class="kontakt">
-			<p><b>Telephone</b></p>
-			<a href="tel:+45 45261655">+45 26 16 25 55</a>
-		</div>
-
-		<div class="kontakt">
-			<p><b>Email</b></p>
-			<a href="mailto: mail@peterravn.dk">mail@peterravn.dk</a>
-		</div>
-
-		<div class="kontakt">
-			<p><b>Social media</b></p>
-			<a href="https://www.facebook.com/Peter-Rothmeier-Ravn-7157268355/" class="fa fa-facebook"></a>
-			<a href="https://www.instagram.com/peter_rothmeier_ravn/" class="fa fa-instagram"></a>
-
-		</div>
-	</footer>
-	<template class="template_txt">
-		<article>
-			<h2 class="title"></h2>
-			<article class="text"></article>
-		</article>
-
-	</template>
-	<script>
-		//idéen er at få tekst frem i bokse
-		let texts;
-		const url = "https://katjsoeg.dk/kea/2_sem_eksamen/designwp/wordpress/wp-json/wp/v2/texts";
-
-		document.addEventListener("DOMContentLoaded", start);
-
-		function start() {
-			console.log("start");
-			hentJson();
-		}
-
-		async function hentJson() {
-			const response = await fetch(url);
-			console.log(response);
-
-			texts = await response.json();
-			console.log(texts);
-			vis();
-		}
+    <section class="tekst">
 
 
+        <!-- tekst område-->
 
-		function vis() {
+    </section>
+    <footer id="info">
 
-			const template = document.querySelector(".template_txt");
-			const tekst = document.querySelector(".tekst");
+        <div class="kontakt">
+            <p><b>Telephone</b></p>
+            <a href="tel:+45 45261655">+45 26 16 25 55</a>
+        </div>
 
-			texts.forEach(text => {
+        <div class="kontakt">
+            <p><b>Email</b></p>
+            <a href="mailto: mail@peterravn.dk">mail@peterravn.dk</a>
+        </div>
 
-				console.log(text);
-				const klon = template.cloneNode(true).content;
-				klon.querySelector(".title").textContent = text.title.rendered;
-				klon.querySelector(".text").textContent = text.content.rendered;
+        <div class="kontakt">
+            <p><b>Social media</b></p>
+            <a href="https://www.facebook.com/Peter-Rothmeier-Ravn-7157268355/" class="fa fa-facebook"></a>
+            <a href="https://www.instagram.com/peter_rothmeier_ravn/" class="fa fa-instagram"></a>
 
-				console.log(klon.querySelector(".text"));
+        </div>
+    </footer>
+    <template class="template_txt">
+        <article>
+            <h2 class="title"></h2>
+            <article class="text"></article>
+        </article>
 
+    </template>
+    <script>
+        //idéen er at få tekst frem i bokse
+        let texts;
+        const url = "https://katjsoeg.dk/kea/2_sem_eksamen/designwp/wordpress/wp-json/wp/v2/texts";
 
-				tekst.appendChild(klon);
+        document.addEventListener("DOMContentLoaded", start);
 
-				//Nu er det ikke som at hente et billede. Titlen er title.rendered , hovedtekst er content.rendered.
-			});
+        function start() {
+            console.log("start");
+            hentJson();
+        }
 
-		}
-	</script>
-</body>
+        async function hentJson() {
+            const response = await fetch(url);
+            console.log(response);
 
-</html>
-=======
-<header id="myTopnav">
-	<div class="topnav">
-		<a href="index.html"></a>
-		<a href="kontakt.html">Contact</a>
-		<a href="materials.html">Materials</a>
-		<a href="galleri.html">Gallery</a>
-		<a href="index.html">Home</a>
-		<a href="javascript:void(0);" class="icon" onclick="burgerMenu()">
-			<i class="fa fa-bars"></i>
-		</a>
-	</div>
-	<div class="border_header"></div>
-</header>
+            texts = await response.json();
+            console.log(texts);
+            vis();
+        }
 
 
 
+        function vis() {
 
-<!-- navigation galleri side-->
-<section id="materials_content">
-	<h1>Materials</h1>
-</section>
+            const template = document.querySelector(".template_txt");
+            const tekst = document.querySelector(".tekst");
 
-<section class="box3">
-	<article></article>
-	<article></article>
-	<article></article>
-	<article></article>
-	<article></article>
-	<article></article>
-	<article></article>
-	<article></article>
+            texts.forEach(text => {
 
-	<!-- galleri område-->
+                console.log(text);
+                const klon = template.cloneNode(true).content;
+                klon.querySelector(".title").textContent = text.title.rendered;
+                klon.querySelector(".text").textContent = text.content.rendered;
 
-</section>
-<footer id="info">
+                console.log(klon.querySelector(".text"));
 
-	<div class="kontakt">
-		<p><b>Telephone</b></p>
-		<a href="tel:+45 45261655">+45 26 16 25 55</a>
-	</div>
 
-	<div class="kontakt">
-		<p><b>Email</b></p>
-		<a href="mailto: mail@peterravn.dk">mail@peterravn.dk</a>
-	</div>
+                tekst.appendChild(klon);
 
-	<div class="kontakt">
-		<p><b>Social media</b></p>
-		<a href="https://www.facebook.com/Peter-Rothmeier-Ravn-7157268355/" class="fa fa-facebook"></a>
-		<a href="https://www.instagram.com/peter_rothmeier_ravn/" class="fa fa-instagram"></a>
+                //Nu er det ikke som at hente et billede. Titlen er title.rendered , hovedtekst er content.rendered.
+            });
 
-	</div>
-</footer>
-<script src="script.js"></script>
+        }
+    </script>
+
 </body></html>
->>>>>>> origin/master
