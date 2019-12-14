@@ -21,19 +21,12 @@
         box-sizing: border-box;
     }
 
-    main {
-        height: 100vh;
-        display: grid;
-        grid-template-rows: 1fr 2fr 1fr;
-        grid-gap: 10px;
-
-    }
-
 
     article {
-        background: lightgrey;
-        min-height: 200px;
-        border: none;
+        box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.08);
+        padding: 1vw;
+        margin: 1vw;
+    }
 </style>
 
 
@@ -68,6 +61,15 @@
         <!-- tekst område-->
 
     </section>
+
+    <template class="template_txt">
+        <article>
+            <h2 class="title"></h2>
+            <p class="text"></p>
+        </article>
+
+    </template>
+
     <footer id="info">
 
         <div class="kontakt">
@@ -87,13 +89,8 @@
 
         </div>
     </footer>
-    <template class="template_txt">
-        <article>
-            <h2 class="title"></h2>
-            <article class="text"></article>
-        </article>
 
-    </template>
+
     <script>
         //idéen er at få tekst frem i bokse
         let texts;
@@ -126,8 +123,8 @@
 
                 console.log(text);
                 const klon = template.cloneNode(true).content;
-                klon.querySelector(".title").textContent = text.title.rendered;
-                klon.querySelector(".text").textContent = text.content.rendered;
+                klon.querySelector(".title").innerHTML = text.title.rendered;
+                klon.querySelector(".text").innerHTML = text.content.rendered;
 
                 console.log(klon.querySelector(".text"));
 

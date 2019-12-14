@@ -231,8 +231,8 @@
                 klon.querySelector("img").src = painting.billede.guid;
                 klon.querySelector("img").alt = painting.title.rendered;
                 console.log(klon.querySelector(".caption"));
-
                 klon.querySelector(".caption").textContent = painting.kort_tekst;
+
                 galleri.appendChild(klon);
 
                 galleri.lastElementChild.addEventListener("click", () => {
