@@ -40,8 +40,8 @@ h2 {
 .topnav a:first-child {
     background-image: url(logo2.png);
     background-size: cover;
-    width: 14.5vw;
-    height: 8vw;
+    width: 16vw;
+    height: 9vw;
     margin: 1vw;
 }
 
@@ -88,7 +88,8 @@ footer a {
 
 .kontakt {
     flex-basis: 100px;
-    margin: 2vw;
+    margin: 1.5vw;
+    flex-grow: 1;
 }
 
 a.fa-facebook,
@@ -218,15 +219,10 @@ a.fa-instagram {
         display: none;
     }
 
-
-    .topnav a:not(:first-child) {
-        display: none;
-    }
-
-
     .topnav a.icon {
         float: right;
         display: block;
+        font-size: 22px;
     }
 
 
@@ -238,12 +234,6 @@ a.fa-instagram {
         position: absolute;
         right: 0;
         top: 0;
-    }
-
-    .topnav.responsive a {
-        float: none;
-        display: block;
-        text-align: left;
     }
 
     .topnav.responsive a {
