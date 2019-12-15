@@ -4,267 +4,265 @@
 
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Gallery</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
 </head>
 <style>
-    body {
-        margin: 0;
+	body {
+		margin: 0;
 
-    }
+	}
 
-    * {
-        box-sizing: border-box;
-    }
+	* {
+		box-sizing: border-box;
+	}
 
-    img {
-        width: 100%;
-        height: 100%;
-        cursor: pointer;
-    }
+	img {
+		width: 100%;
+		height: 100%;
+		cursor: pointer;
+	}
 
-    figure {
-        margin: 1.5vw;
-    }
+	figure {
+		margin: 1.5vw;
+	}
 
-    figure:hover {
-        opacity: 0.8;
-    }
+	figure:hover {
+		opacity: 0.8;
+	}
 
-    .galleri {
-        text-align: center;
-        display: grid;
-        grid-gap: 30px;
-        /*i mobile version er der 1 kolonne*/
-        grid-template-columns: repeat(1, 1fr);
-        max-width: 990px;
-        margin: 0 auto;
-        color: rgba(0, 0, 0, 0.65);
-    }
+	.galleri {
+		text-align: center;
+		display: grid;
+		grid-gap: 30px;
+		/*i mobile version er der 1 kolonne*/
+		grid-template-columns: repeat(1, 1fr);
+		max-width: 990px;
+		margin: 0 auto;
+		color: rgba(0, 0, 0, 0.65);
+	}
 
-    article {
-        box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.08);
-    }
+	article {
+		box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.08);
+	}
 
-    /*når skærmen er mindre end 700px, vil der være 2 kolonner */
-    @media screen and (max-width: 700px) {
-        .galleri {
-            grid-template-columns: repeat(1, 1fr);
-        }
+	/*når skærmen er mindre end 700px, vil der være 2 kolonner */
+	@media screen and (max-width: 700px) {
+		.galleri {
+			grid-template-columns: repeat(1, 1fr);
+		}
 
-        article {
-            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.08);
-        }
+		article {
+			box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.08);
+		}
 
-    }
+	}
 
-    /*når skærmen er større end 700px, vil der være 3 kolonner */
-    @media screen and (min-width: 700px) {
-        .galleri {
-            grid-template-columns: repeat(3, 1fr);
-        }
-    }
+	/*når skærmen er større end 700px, vil der være 3 kolonner */
+	@media screen and (min-width: 700px) {
+		.galleri {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
 
-    #popup {
-        position: fixed;
-        top: 0;
-        width: 100vw;
-        height: 100vh;
-        background-color: rgba(0, 0, 0, .8);
-        display: none;
-        z-index: 3;
-        /*gør så man kan scrolle på pop up, og læse resterende info*/
-        overflow: scroll;
-    }
+	#popup {
+		position: fixed;
+		top: 0;
+		width: 100vw;
+		height: 100vh;
+		background-color: rgba(0, 0, 0, .8);
+		display: none;
+		z-index: 3;
+		/*gør så man kan scrolle på pop up, og læse resterende info*/
+		overflow: scroll;
+	}
 
-    .indhold {
-        width: 50vw;
-        min-height: 40vh;
-        margin: 4rem auto;
-        padding: 10px;
-        color: white;
-        text-align: center;
-    }
-
-
-    .luk {
-        position: fixed;
-        /*sætter krydset i øverste højre hjørne*/
-        right: 1vw;
-        top: 1vw;
-        font-size: 2rem;
-        cursor: pointer;
-        background-color: transparent;
-        color: white;
-        border: none;
-    }
-
-    .luk:hover {
-        background-color: rgba(0, 0, 0, .5);
-    }
+	.indhold {
+		width: 50vw;
+		min-height: 40vh;
+		margin: 4rem auto;
+		padding: 10px;
+		color: white;
+		text-align: center;
+	}
 
 
-    @media screen and (max-width: 700px) {
-        .indhold {
-            width: 100%;
-        }
+	.luk {
+		position: fixed;
+		/*sætter krydset i øverste højre hjørne*/
+		right: 1vw;
+		top: 1vw;
+		font-size: 2rem;
+		cursor: pointer;
+		background-color: transparent;
+		color: white;
+		border: none;
+	}
 
-        .galleri {
-            margin: 3vw;
-        }
-    }
+	.luk:hover {
+		background-color: rgba(0, 0, 0, .5);
+	}
+
+
+	@media screen and (max-width: 700px) {
+		.indhold {
+			width: 100%;
+		}
+
+		.galleri {
+			margin: 3vw;
+		}
+	}
 </style>
 
 
 <body>
 
-    <header id="myTopnav">
-        <div class="topnav">
-            <a href="index.html"></a>
-            <a href="kontakt.html">Contact</a>
-            <a href="materials.html">Materials</a>
-            <a href="galleri.html">Gallery</a>
-            <a href="index.html">Home</a>
-            <a href="javascript:void(0);" class="icon" onclick="burgerMenu()">
-                <i class="fa fa-bars"></i>
-            </a>
-        </div>
-        <div class="border_header"></div>
-    </header>
+	<header id="myTopnav">
+		<div class="topnav">
+			<a href="index.html"></a>
+			<a href="kontakt.html">Contact</a>
+			<a href="materials.html">Materials</a>
+			<a href="galleri.html">Gallery</a>
+			<a href="index.html">Home</a>
+			<a href="javascript:void(0);" class="icon" onclick="burgerMenu()">
+				<i class="fa fa-bars"></i>
+			</a>
+		</div>
+		<div class="border_header"></div>
+	</header>
 
 
 
 
-    <!-- navigation galleri side-->
-    <section id="galleri_content">
-        <h1>Gallery</h1>
-    </section>
+	<!-- navigation galleri side-->
+	<section id="galleri_content">
+		<h1>Gallery</h1>
+	</section>
 
-    <template class="template_img">
-        <article>
-            <h2 class="title"></h2>
-            <figure>
-                <img src="" alt="">
-                <figcaption class="caption"></figcaption>
-            </figure>
-        </article>
+	<template class="template_img">
+		<article>
+			<h2 class="title"></h2>
+			<figure>
+				<img src="" alt="">
+				<figcaption class="caption"></figcaption>
+			</figure>
+		</article>
 
-    </template>
+	</template>
 
-    <div id="popup">
-        <button class="luk">X</button>
-        <section class="indhold">
-            <!--de informationer der skal vises når pop up bliver åbnet-->
-            <article class="menu">
-                <h2 class="title"></h2>
-                <img src="" alt="">
-            </article>
-        </section>
-    </div>
+	<div id="popup">
+		<button class="luk">X</button>
+		<section class="indhold">
+			<!--de informationer der skal vises når pop up bliver åbnet-->
+			<article class="menu">
+				<h2 class="title"></h2>
+				<img src="" alt="">
+			</article>
+		</section>
+	</div>
 
-    <section class="galleri">
-        <!-- galleri område-->
+	<section class="galleri">
+		<!-- galleri område-->
 
-    </section>
-
-
-
-
-    <footer id="info">
-
-        <div class="kontakt">
-            <p><b>Telephone</b></p>
-            <a href="tel:+45 45261655">+45 26 16 25 55</a>
-        </div>
-
-        <div class="kontakt">
-            <p><b>Email</b></p>
-            <a href="mailto: mail@peterravn.dk">mail@peterravn.dk</a>
-        </div>
-
-        <div class="kontakt">
-            <p><b>Social media</b></p>
-            <a href="https://www.facebook.com/Peter-Rothmeier-Ravn-7157268355/" class="fa fa-facebook"></a>
-            <a href="https://www.instagram.com/peter_rothmeier_ravn/" class="fa fa-instagram"></a>
-
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
-
-    <script>
-        let paintings;
-        const url = "https://katjsoeg.dk/kea/2_sem_eksamen/designwp/wordpress/wp-json/wp/v2/paintings";
-
-        document.addEventListener("DOMContentLoaded", start);
-
-        function start() {
-            console.log("start");
-            hentJson();
-        }
-
-        async function hentJson() {
-            const response = await fetch(url);
-            console.log(response);
-
-            paintings = await response.json();
-            console.log(paintings);
-            vis();
-        }
+	</section>
 
 
 
-        function vis() {
 
-            const template = document.querySelector(".template_img");
-            const galleri = document.querySelector(".galleri");
+	<footer id="info">
 
-            paintings.forEach(painting => {
+		<div class="kontakt">
+			<p><b>Telephone</b></p>
+			<a href="tel:+45 45261655">+45 26 16 25 55</a>
+		</div>
 
-                console.log(painting);
-                const klon = template.cloneNode(true).content;
-                klon.querySelector(".title").textContent = painting.title.rendered;
-                klon.querySelector("img").src = painting.billede.guid;
-                klon.querySelector("img").alt = painting.title.rendered;
-                console.log(klon.querySelector(".caption"));
-                klon.querySelector(".caption").textContent = painting.kort_tekst;
+		<div class="kontakt">
+			<p><b>Email</b></p>
+			<a href="mailto: mail@peterravn.dk">mail@peterravn.dk</a>
+		</div>
 
-                galleri.appendChild(klon);
+		<div class="kontakt">
+			<p><b>Social media</b></p>
+			<a href="https://www.facebook.com/Peter-Rothmeier-Ravn-7157268355/" class="fa fa-facebook"></a>
+			<a href="https://www.instagram.com/peter_rothmeier_ravn/" class="fa fa-instagram"></a>
 
-                galleri.lastElementChild.addEventListener("click", () => {
-                    visSingle(painting);
-                });
+		</div>
+	</footer>
+
+	<script src="script.js"></script>
+
+	<script>
+		let paintings;
+		const url = "https://katjsoeg.dk/kea/2_sem_eksamen/designwp/wordpress/wp-json/wp/v2/paintings";
+
+		document.addEventListener("DOMContentLoaded", start);
+
+		function start() {
+			console.log("start");
+			hentJson();
+		}
+
+		async function hentJson() {
+			const response = await fetch(url);
+			console.log(response);
+
+			paintings = await response.json();
+			console.log(paintings);
+			vis();
+		}
 
 
-            });
+
+		function vis() {
+
+			const template = document.querySelector(".template_img"); //navnet på template
+			const galleri = document.querySelector(".galleri"); //navnet på den del af siden vi gerne vil vise billederne på
+
+			paintings.forEach(painting => {
+
+				console.log(painting);
+				const klon = template.cloneNode(true).content;
+				klon.querySelector(".title").textContent = painting.title.rendered; //titlen på billedet
+				klon.querySelector("img").src = painting.billede.guid; //Selve billedet
+				klon.querySelector("img").alt = painting.title.rendered; //billedets alt-tekst
+				console.log(klon.querySelector(".caption"));
+				klon.querySelector(".caption").textContent = painting.kort_tekst; //den korte beskrivelse
+
+				galleri.appendChild(klon);
+
+				galleri.lastElementChild.addEventListener("click", () => {
+					visSingle(painting);
+				});
+
+
+			});
 
 
 
-        }
+		}
 
 
-        function visSingle(painting) {
-            //pop up vinduet vises
-            document.querySelector("#popup").style.display = "block";
-            //når der trykkes på .luk, lukkes vinduet
-            document.querySelector("#popup .luk").addEventListener("click", lukSingle);
+		function visSingle(painting) {
+			//pop up vinduet vises
+			document.querySelector("#popup").style.display = "block";
+			//når der trykkes på .luk, lukkes vinduet
+			document.querySelector("#popup .luk").addEventListener("click", lukSingle);
 
-            //her tilføjes de informationer der skal være i .indhold
-            document.querySelector(".menu .title").textContent = painting.title.rendered;
+			//her tilføjes de informationer der skal være i .indhold
+			document.querySelector(".menu .title").textContent = painting.title.rendered;
 
-            document.querySelector(".menu img").src = painting.billede.guid;
-            document.querySelector(".menu img").alt = painting.title.rendered;
-        }
+			document.querySelector(".menu img").src = painting.billede.guid;
+			document.querySelector(".menu img").alt = painting.title.rendered;
+		}
 
-        function lukSingle() {
-            //pop up siden vises ikke længere
-            document.querySelector("#popup").style.display = "none";
-        }
-    </script>
-</body>
-
-</html>
+		function lukSingle() {
+			//pop up siden vises ikke længere
+			document.querySelector("#popup").style.display = "none";
+		}
+	</script>
+</body></html>
