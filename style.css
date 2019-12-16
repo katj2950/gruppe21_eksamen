@@ -89,7 +89,6 @@ footer a {
 .kontakt {
     flex-basis: 100px;
     margin: 1.5vw;
-    flex-grow: 1;
 }
 
 a.fa-facebook,

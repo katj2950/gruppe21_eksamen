@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="da">
 
-
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,60 +8,47 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
-</head>
-<style>
-    body {
-        margin: 0;
 
-    }
-
-    * {
-        box-sizing: border-box;
-    }
-
-    h2 {
-        margin: 2vw;
-    }
-
-    article {
-        box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.08);
-        padding: 1vw;
-        margin: 1vw;
-    }
-
-    .text {
-        display: none;
-    }
-
-    .tekst {
-        text-align: center;
-        display: grid;
-        grid-gap: 30px;
-        /*i mobile version er der 1 kolonne*/
-        grid-template-columns: repeat(1, 1fr);
-        max-width: 990px;
-        margin: 0 auto;
-        color: rgba(0, 0, 0, 0.80);
-    }
-
-
-    article:hover {
-        background: rgba(0, 0, 0, 0.30);
-        cursor: pointer;
-    }
-
-    /*når skærmen er større end 700px, vil der være 3 kolonner */
-    @media screen and (min-width: 700px) {
-        .tekst {
-            grid-template-columns: repeat(2, 1fr);
+    <style>
+        body {
+            margin: 0;
         }
-    }
-</style>
 
+
+        img {
+            width: 100%;
+        }
+
+        #single {
+            display: flex;
+            justify-content: center;
+            margin: 3vw;
+        }
+
+        .indhold {
+            width: 38vw;
+            min-height: 40vh;
+            /*margin: 4rem auto;*/
+            padding: 10px;
+            color: white;
+            text-align: center;
+            border-radius: 5%;
+        }
+
+
+        @media screen and (max-width: 700px) {
+            .indhold {
+                width: 65%;
+            }
+        }
+
+        .text {
+            display: flex;
+        }
+    </style>
+</head>
 
 <body>
-
-
     <header id="myTopnav">
         <div class="topnav">
             <a href="index.html"></a>
@@ -80,25 +65,16 @@
 
 
 
-
-    <!-- navigation galleri side-->
-    <section id="materials_content">
-        <h1>Materials</h1>
-    </section>
-    <h2>Texts</h2>
-    <section class="tekst">
-
-        <!-- tekst område-->
-
-    </section>
-
-    <template class="template_txt">
-        <article>
-            <h2 class="title"></h2>
-            <p class="text"></p>
-        </article>
-
-    </template>
+    <main id="single">
+        <section class="indhold">
+            <template class="template_txt">
+                <article>
+                    <h2 class="title"></h2>
+                    <p class="text"></p>
+                </article>
+            </template>
+        </section>
+    </main>
 
     <footer id="info">
 
@@ -119,14 +95,12 @@
 
         </div>
     </footer>
-
-
-
     <script src="script.js"></script>
 
     <script>
-        //idéen er at få tekst frem i bokse
-        let texts;
+        let urlParams = new URLSearchParams(window.location.search);
+        let text = urlParams.get("text");
+
         const url = "https://katjsoeg.dk/kea/2_sem_eksamen/designwp/wordpress/wp-json/wp/v2/texts";
 
         document.addEventListener("DOMContentLoaded", start);
@@ -142,41 +116,30 @@
 
             texts = await response.json();
             console.log(texts);
+
+
             vis();
         }
 
 
-
         function vis() {
-
             const template = document.querySelector(".template_txt");
             const tekst = document.querySelector(".tekst");
 
             texts.forEach(text => {
 
                 console.log(text);
-                const klon = template.cloneNode(true).content;
 
+                const klon = template.cloneNode(true).content;
                 klon.querySelector(".title").innerHTML = text.title.rendered;
                 klon.querySelector(".text").innerHTML = text.content.rendered;
+
                 console.log(klon.querySelector(".text"));
 
-
-                tekst.appendChild(klon);
-
-                tekst.lastElementChild.addEventListener("click", () => {
-                    location.href = `materials_singleview.html?text=${text.title.rendered}`;
-                });
-
-
-
-
-                //Nu er det ikke som at hente et billede. Titlen er title.rendered, men hovedtekst er content.rendered. InnerHTML gør at den ikke henter tag koden
             });
 
         }
     </script>
-
 </body>
 
 </html>
