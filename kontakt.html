@@ -12,7 +12,47 @@
     <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
 </head>
 
+<style>
+    .accordion {
+        box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.08);
+        background-color: #f4f4f4;
+        color: #5f5f5f;
+        cursor: pointer;
+        padding: 18px;
+        margin: 2vw;
+        width: 30%;
+        border: none;
+        text-align: center;
+        outline: none;
+        font-size: 22px;
+        transition: 0.4s;
+    }
 
+    .active,
+    .accordion:hover {
+        background-color: #ccc;
+    }
+
+    .accordion:after {
+        content: '\002B';
+        color: #777;
+        font-weight: bold;
+        float: right;
+        margin-left: 5px;
+    }
+
+    .active:after {
+        content: "\2212";
+    }
+
+    .panel {
+        padding: 0 18px;
+        background-color: white;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+    }
+</style>
 
 <body>
     <header id="myTopnav">
@@ -64,19 +104,32 @@
 
     </section>
 
+
+    <section id="cv_content">
+
+        <button class="accordion">My CV</button>
+
+
+        <template class="template_cv">
+            <div class="panel">
+                <article>
+
+                    <h2 class="title"></h2>
+                    <p class="text"></p>
+
+                </article>
+            </div>
+        </template>
+
+
+    </section>
+
     <section class="cv">
 
         <!-- tekst område-->
 
     </section>
 
-    <template class="template_cv">
-        <article>
-            <h2 class="title"></h2>
-            <p class="text"></p>
-        </article>
-
-    </template>
 
     <footer id="info">
 
@@ -101,11 +154,17 @@
     <script src="script.js"></script>
 
     <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+
+
         //idéen er at få tekst frem i bokse
         let texts;
         const url = "https://katjsoeg.dk/kea/2_sem_eksamen/designwp/wordpress/wp-json/wp/v2/materials";
 
         document.addEventListener("DOMContentLoaded", start);
+
+
 
         function start() {
             console.log("start");
@@ -115,7 +174,6 @@
         async function hentJson() {
             const response = await fetch(url);
             console.log(response);
-
             texts = await response.json();
             console.log(texts);
             vis();
@@ -124,7 +182,6 @@
 
 
         function vis() {
-
             const template = document.querySelector(".template_cv");
             const cv = document.querySelector(".cv");
 
@@ -137,14 +194,32 @@
                 klon.querySelector(".text").innerHTML = text.content.rendered;
                 console.log(klon.querySelector(".text"));
 
-
                 cv.appendChild(klon);
 
                 //Nu er det ikke som at hente et billede. Titlen er title.rendered, men hovedtekst er content.rendered. InnerHTML gør at den ikke henter tag koden
             });
+            clickBox();
 
         }
 
+        function clickBox() {
+            for (i = 0; i < acc.length; i++) {
+                acc[i].addEventListener("click", function() {
+                    /* Toggle between adding and removing the "active" class,
+                    to highlight the button that controls the panel */
+                    this.classList.toggle("active");
+
+                    /* Toggle between hiding and showing the active panel */
+                    var panel = this.nextElementSibling;
+                    if (panel.style.display === "block") {
+                        panel.style.display = "none";
+                    } else {
+                        panel.style.display = "block";
+                    }
+                });
+            }
+
+        }
     </script>
 
 </body>

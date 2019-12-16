@@ -21,8 +21,11 @@
         box-sizing: border-box;
     }
 
-    h2 {
-        margin: 2vw;
+    .overskrift_materials {
+        text-align: start;
+        max-width: 990px;
+        margin: 0 auto;
+        padding: 1vw;
     }
 
     article {
@@ -38,7 +41,7 @@
     .tekst {
         text-align: center;
         display: grid;
-        grid-gap: 30px;
+        grid-gap: 10px;
         /*i mobile version er der 1 kolonne*/
         grid-template-columns: repeat(1, 1fr);
         max-width: 990px;
@@ -58,6 +61,7 @@
             grid-template-columns: repeat(2, 1fr);
         }
     }
+
 </style>
 
 
@@ -85,9 +89,13 @@
     <section id="materials_content">
         <h1>Materials</h1>
     </section>
-    <h2>Texts</h2>
-    <section class="tekst">
 
+
+    <div class="overskrift_materials">
+        <h2>Texts</h2>
+    </div>
+
+    <section class="tekst">
         <!-- tekst område-->
 
     </section>
@@ -175,6 +183,7 @@
             });
 
         }
+
     </script>
 
 </body>
