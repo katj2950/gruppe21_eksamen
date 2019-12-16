@@ -162,6 +162,7 @@ a.fa-instagram {
 
 
 .sectionwrapper {
+    margin-left: 4.5vw;
     margin-top: 2vw;
     flex-basis: 200px;
     flex-grow: 1;
@@ -193,7 +194,7 @@ a.fa-instagram {
 .kant iframe {
     margin-left: 0.5vw;
     height: 25vw;
-    width: 35vw;
+    width: 32vw;
 }
 
 #sectionwrapper_kant a {
