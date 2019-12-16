@@ -45,6 +45,53 @@
 		box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.08);
 	}
 
+	#navbar {
+		text-align: center;
+		width: 100%;
+		background-image: linear-gradient(to right, rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.50));
+		z-index: 2;
+	}
+
+	/* The sticky class is added to the navbar with JS when it reaches its scroll position */
+	.sticky {
+		position: fixed;
+		top: 0;
+		width: 100%;
+	}
+
+	/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+	.sticky+.content {
+		padding-top: 60px;
+	}
+
+	.filter {
+		background-color: inherit;
+		color: white;
+		font-size: 14px;
+		border: none;
+		padding: 10px;
+		cursor: pointer;
+		font-family: 'Lato', sans-serif;
+		text-transform: uppercase;
+		margin: 5px;
+	}
+
+	.filter:hover {
+		opacity: 0.2;
+	}
+
+	.liste {
+		text-align: center;
+		display: grid;
+		grid-gap: 18px;
+		/*i mobile version er der 1 kolonne*/
+		grid-template-columns: repeat(1, 1fr);
+		max-width: 980px;
+		margin: 0 auto;
+		color: rgba(0, 0, 0, 0.65);
+		cursor: pointer;
+	}
+
 	/*når skærmen er mindre end 700px, vil der være 1 kolonner */
 	@media screen and (max-width: 700px) {
 		.galleri {
@@ -112,6 +159,7 @@
 			margin: 3vw;
 		}
 	}
+
 </style>
 
 
@@ -163,10 +211,10 @@
 		<nav id="navbar">
 
 			<button class="filter" data-kategori="alle">Alle</button>
-			<button class="filter" data-kategori="foundation">Fold 2019</button>
-			<button class="filter" data-kategori="øjenskygge">Paintings 2018 – 2019</button>
-			<button class="filter" data-kategori="læbestift">Paintings 2016 -2017</button>
-			<button class="filter" data-kategori="lipgloss">Paintings 2014 – 2015</button>
+			<button class="filter" data-kategori="fold2019">Fold 2019</button>
+			<button class="filter" data-kategori="paint18-19">Paintings 2018 – 2019</button>
+			<button class="filter" data-kategori="paint16-17">Paintings 2016 -2017</button>
+			<button class="filter" data-kategori="paint14-15">Paintings 2014 – 2015</button>
 
 
 		</nav>
@@ -270,5 +318,10 @@
 			//pop up siden vises ikke længere
 			document.querySelector("#popup").style.display = "none";
 		}
+
+		//funktion for filtrering
+
 	</script>
-</body></html>
+</body>
+
+</html>
