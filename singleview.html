@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		.indhold {
+			width: 70vw;
+			min-height: 50vh;
+			background: #fff;
+			margin: 4rem auto;
+			padding: 10px;
+		}
+
+		.luk {
+			font-size: 2rem;
+			cursor: pointer;
+		}
+
+	</style>
+	<title></title>
+</head>
+
+<body>
+	<main id="single">
+		<button class="luk">Tilbage</button>
+		<section class="indhold">
+			<article class="enkeltPerson">
+				<h2></h2>
+				<img class="billede" src="" alt="">
+				<p>Github: <a class="github" href=""></a></p>
+				<p class="historie"></p>
+			</article>
+		</section>
+	</main>
+	<script>
+		let urlParams = new URLSearchParams(window.location.search);
+		let github = urlParams.get("github");
+		let elever;
+		document.addEventListener("DOMContentLoaded", getJson);
+
+		async function getJson() {
+			let jsonData = await fetch("https://spreadsheets.google.com/feeds/list/1Xge7slZ9dEOTCn1Yxl3OE4xgvrXOL8Y_iu3WN1yGB1U/od6/public/values?alt=json");
+			elever = await jsonData.json();
+			visElev();
+		}
+
+		function visElev() {
+			elever.feed.entry.forEach(elev => {
+				if (elev.gsx$github.$t == github) {
+					document.querySelector(".enkeltPerson h2").textContent = elev.gsx$navn.$t;
+					document.querySelector(".enkeltPerson .billede").src = elev.gsx$billede.$t;
+					document.querySelector(".enkeltPerson .billede").alt = elev.gsx$navn.$t;
+					document.querySelector(".enkeltPerson .github").href = `http://github.com/${elev.gsx$github.$t}`;
+					document.querySelector(".enkeltPerson .github").textContent = `http://github.com/${elev.gsx$github.$t}`;
+					document.querySelector(".enkeltPerson .historie").textContent = elev.gsx$historie.$t;
+				}
+			})
+		}
+		document.querySelector(".luk").addEventListener("click", () => {
+			history.back();
+		})
+
+	</script>
+</body>
+
+</html>
