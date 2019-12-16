@@ -64,6 +64,19 @@
 
     </section>
 
+    <section class="cv">
+
+        <!-- tekst område-->
+
+    </section>
+
+    <template class="template_cv">
+        <article>
+            <h2 class="title"></h2>
+            <p class="text"></p>
+        </article>
+
+    </template>
 
     <footer id="info">
 
@@ -86,6 +99,54 @@
     </footer>
 
     <script src="script.js"></script>
+
+    <script>
+        //idéen er at få tekst frem i bokse
+        let texts;
+        const url = "https://katjsoeg.dk/kea/2_sem_eksamen/designwp/wordpress/wp-json/wp/v2/pages";
+
+        document.addEventListener("DOMContentLoaded", start);
+
+        function start() {
+            console.log("start");
+            hentJson();
+        }
+
+        async function hentJson() {
+            const response = await fetch(url);
+            console.log(response);
+
+            texts = await response.json();
+            console.log(texts);
+            vis();
+        }
+
+
+
+        function vis() {
+
+            const template = document.querySelector(".template_cv");
+            const cv = document.querySelector(".cv");
+
+            texts.forEach(text => {
+
+                console.log(text);
+                const klon = template.cloneNode(true).content;
+
+                klon.querySelector(".title").innerHTML = text.title.rendered;
+                klon.querySelector(".text").innerHTML = text.content.rendered;
+                console.log(klon.querySelector(".text"));
+
+
+                cv.appendChild(klon);
+
+                //Nu er det ikke som at hente et billede. Titlen er title.rendered, men hovedtekst er content.rendered. InnerHTML gør at den ikke henter tag koden
+            });
+
+        }
+
+    </script>
+
 </body>
 
 </html>
