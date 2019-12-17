@@ -53,6 +53,21 @@
         overflow: hidden;
         transition: max-height 0.2s ease-out;
     }
+
+    @media screen and (max-width: 700px) {
+        .accordion {
+            width: 90%;
+        }
+
+        #cv_knap {
+            text-align: center;
+        }
+
+        .text,
+        .title {
+            text-align: start;
+        }
+    }
 </style>
 
 <body>
@@ -125,14 +140,14 @@
 
 
 
-
-    <button class="accordion">My CV</button>
-    <section class="cv">
-        <div class="panel">
-            <!-- tekst område-->
-        </div>
-    </section>
-
+    <div id="cv_knap">
+        <button class="accordion">My CV</button>
+        <section class="cv">
+            <div class="panel">
+                <!-- tekst område-->
+            </div>
+        </section>
+    </div>
 
 
 
