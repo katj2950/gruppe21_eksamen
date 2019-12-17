@@ -40,6 +40,7 @@
                 width: 65%;
             }
         }
+
     </style>
 </head>
 
@@ -62,12 +63,10 @@
 
     <main id="single">
         <section class="indhold">
-            <template class="template_txt">
-                <article>
-                    <h2 class="title"></h2>
-                    <p class="text"></p>
-                </article>
-            </template>
+            <article>
+                <h2 class="title"></h2>
+                <p class="text"></p>
+            </article>
         </section>
     </main>
 
@@ -95,6 +94,7 @@
     <script>
         let urlParams = new URLSearchParams(window.location.search);
         let text = urlParams.get("text");
+        let texts;
 
         const url = "https://katjsoeg.dk/kea/2_sem_eksamen/designwp/wordpress/wp-json/wp/v2/texts";
 
@@ -118,21 +118,20 @@
 
 
         function vis() {
-            const template = document.querySelector(".template_txt");
-            const tekst = document.querySelector(".tekst");
+
             texts.forEach(text => {
+                if (text.title.rendered == text) {
+                    console.log(text);
+                    const klon = template.cloneNode(true).content;
+                    klon.querySelector(".title").innerHTML = text.title.rendered;
+                    klon.querySelector(".text").innerHTML = text.content.rendered;
 
-                console.log(text);
-
-                const klon = template.cloneNode(true).content;
-                klon.querySelector(".title").innerHTML = text.title.rendered;
-                klon.querySelector(".text").innerHTML = text.content.rendered;
-
-                console.log(klon.querySelector(".text"));
-
-            });
+                    console.log(klon.querySelector(".text"));
+                }
+            })
 
         }
+
     </script>
 </body>
 
