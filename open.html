@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>eleverListe</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		body {
+			margin: 10px;
+			padding: 10px;
+		}
+
+		.elever {
+			border: 1px solid black;
+			margin: 5px;
+			padding: 5px;
+		}
+
+		h2 {
+			font-family: sans-serif;
+		}
+
+		img {
+			height: 150px;
+			width: auto;
+		}
+
+		#liste {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			grid-gap: 5px;
+			grid-template-columns: repeat(3, 1fr);
+			max-width: 960px;
+			margin: 0 auto;
+
+		}
+
+		article {
+			width: 300px;
+			height: auto;
+			padding: 5px;
+			border-style: solid;
+			border-color: #000000;
+
+		}
+
+
+
+		@media screen and (min-width:600px) {
+			#liste {
+				grid-template-columns: repeat(2, 1ft);
+				align-content: center;
+			}
+		}
+
+		@media screen and (min-width:768px) {
+			#liste {
+				grid-template-columns: repeat(3, 1fr);
+				max-width: 960px;
+				margin: 0 auto;
+			}
+		}
+
+		.menu {
+			margin: 20px;
+			padding: 20px;
+			position: relative;
+			left: 400px;
+
+		}
+
+		h1 {
+			font-family: sans-serif;
+			position: relative;
+			left: 500px;
+		}
+
+		.filter:focus {
+			background-color: salmon;
+		}
+
+		#popup {
+			position: fixed;
+			top: 0;
+			width: 100vw;
+			height: 100vh;
+			background: red;
+			display: none;
+		}
+
+		.indhold {
+			width: 70vw;
+			min-height: 50vh;
+			background: #fff;
+			margin: 4rem auto;
+			padding: 10px;
+		}
+
+		.luk {
+			position: fixed;
+			right: 0;
+			font-size: 2rem;
+		}
+	</style>
+
+
+
+</head>
+
+<h1>Alle</h1>
+
+
+<body>
+	<template>
+		<div id="popup">
+			<button class="luk">X</button>
+			<section class="indhold">
+				<article class="enkeltPerson">
+					<h2></h2>
+					<img class="billede" src="" alt="">
+					<p>Github: <a class="github" href=""></a></p>
+				</article>
+			</section>
+		</div>
+		<article>
+			<h2></h2> <img src="" alt="">
+			<p id="github"></p>
+
+
+		</article>
+	</template>
+
+
+	<script>
+		let elever;
+
+		const dest = document.querySelector("#liste");
+		const temp = document.querySelector("template");
+		let filter = "alle";
+
+		document.addEventListener("DOMContentLoaded", getJson);
+
+
+		async function getJson() {
+			let jsonData = await fetch("https://spreadsheets.google.com/feeds/list/1Xge7slZ9dEOTCn1Yxl3OE4xgvrXOL8Y_iu3WN1yGB1U/od6/public/values?alt=json");
+			console.log(jsonData);
+			elever = await jsonData.json();
+			console.log(elever);
+			visElever();
+			addEventListenersToButtons();
+		}
+
+		function visElever() {
+			dest.innerHTML = "";
+			elever.feed.entry.forEach((elev) => {
+				if (filter == "alle" || filter == elev.gsx$køn.$t) {
+					const klon = temp.cloneNode(true).content;
+					klon.querySelector("h2").textContent = elev.gsx$navn.$t;
+					klon.querySelector("#github").textContent = elev.gsx$github.$t;
+					klon.querySelector("img").src = elev.gsx$billede.$t;
+
+					dest.appendChild(klon);
+					dest.lastElementChild.addEventListener("click", () => {
+						visSingle(elev)
+					});
+				}
+			})
+		}
+
+		function visSingle(elev) {
+
+			document.querySelector("#popup").style.display = "block";
+
+			document.querySelector(".enkeltPerson h2").textContent = elev.gsx$navn.$t;
+			document.querySelector(".enkeltPerson .billede").src = elev.gsx$billede.$t;
+			document.querySelector(".enkeltPerson .billede").alt = elev.gsx$navn.$t;
+			document.querySelector(".enkeltPerson .github").href = `http://github.com/${elev.gsx$github.$t}`;
+			document.querySelector(".enkeltPerson .github").textContent = `http://github.com/${elev.gsx$github.$t}`;
+			document.querySelector(".enkeltPerson .historie").textContent = elev.gsx$historie.$t;
+		}
+
+		function lukSingle() {
+			document.querySelector("#popup").style.display = "none";
+		}
+
+		function addEventListenersToButtons() {
+			document.querySelectorAll(".filter").forEach(elm => {
+				elm.addEventListener("click", filtrering);
+			})
+		}
+
+		function filtrering() {
+			filter = this.dataset.køn;
+			document.querySelector("h1").textContent = this.textContent;
+			document.querySelectorAll(".filter").forEach(elm => {
+				elm.classList.remove("valgt");
+			})
+			this.classList.add("valgt");
+			visElever();
+		}
+	</script>
+</body></html>
