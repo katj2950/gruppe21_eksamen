@@ -46,6 +46,7 @@
     }
 
     .panel {
+        display: block;
         padding: 0 18px;
         background-color: white;
         max-height: 0;
@@ -122,16 +123,19 @@
     </template>
 
 
-    <section id="cv_knap">
-        <button class="accordion">My CV</button>
 
-        <section class="cv">
 
-            <div class="panel">
-                <!-- tekst område-->
-            </div>
-        </section>
+
+    <button class="accordion">My CV</button>
+    <section class="cv">
+        <div class="panel">
+            <!-- tekst område-->
+        </div>
     </section>
+
+
+
+
 
     <footer id="info">
 
@@ -159,7 +163,6 @@
         var acc = document.getElementsByClassName("accordion");
         var i;
 
-
         //idéen er at få tekst frem i bokse
         let texts;
         const url = "https://katjsoeg.dk/kea/2_sem_eksamen/designwp/wordpress/wp-json/wp/v2/materials";
@@ -170,6 +173,7 @@
 
         function start() {
             console.log("start");
+            clickBox();
             hentJson();
         }
 
@@ -179,6 +183,7 @@
             texts = await response.json();
             console.log(texts);
             vis();
+
         }
 
 
@@ -200,11 +205,12 @@
 
                 //Nu er det ikke som at hente et billede. Titlen er title.rendered, men hovedtekst er content.rendered. InnerHTML gør at den ikke henter tag koden
             });
-            clickBox();
 
         }
 
+
         function clickBox() {
+
             for (i = 0; i < acc.length; i++) {
                 acc[i].addEventListener("click", function() {
                     /* Toggle between adding and removing the "active" class,
@@ -213,6 +219,7 @@
 
                     /* Toggle between hiding and showing the active panel */
                     var panel = this.nextElementSibling;
+
                     if (panel.style.display === "block") {
                         panel.style.display = "none";
                     } else {
@@ -220,7 +227,6 @@
                     }
                 });
             }
-
         }
     </script>
 
