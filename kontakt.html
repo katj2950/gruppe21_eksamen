@@ -13,19 +13,21 @@
 </head>
 
 <style>
+    .cv {
+        margin: 0;
+    }
+
     .accordion {
         box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.08);
         background-color: #f4f4f4;
         color: #5f5f5f;
         cursor: pointer;
         padding: 18px;
-        margin: 4vw;
-        width: 30%;
+        width: 75%;
         border: none;
-        text-align: center;
         outline: none;
         font-size: 22px;
-        transition: 0.4s;
+        transition: 0.4;
     }
 
     .active,
@@ -45,8 +47,6 @@
     }
 
     .panel {
-        display: block;
-        padding: 0 18px;
         background-color: white;
         max-height: 0;
         overflow: hidden;
@@ -62,12 +62,12 @@
             text-align: center;
         }
 
-        .text,
-        .title {
+        .text p,
+        .title,
+        .text h4 {
             text-align: start;
         }
     }
-
 </style>
 
 <body>
@@ -98,6 +98,14 @@
                 <div class="kant">
                     <p>Peter Rothmeier Ravn <br>
                         Lives and works in Copenhagen, Denmark</p>
+                    <div id="cv_knap">
+                        <button class="accordion">My CV</button>
+                        <section class="cv">
+                            <div class="panel">
+                                <!-- tekst område-->
+                            </div>
+                        </section>
+                    </div>
                 </div>
 
             </div>
@@ -140,14 +148,7 @@
 
 
 
-    <div id="cv_knap">
-        <button class="accordion">My CV</button>
-        <section class="cv">
-            <div class="panel">
-                <!-- tekst område-->
-            </div>
-        </section>
-    </div>
+
 
 
 
@@ -243,7 +244,6 @@
                 });
             }
         }
-
     </script>
 
 </body>
