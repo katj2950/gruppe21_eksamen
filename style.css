@@ -265,6 +265,16 @@ a.fa-instagram {
     article {
         box-shadow: inherit;
     }
+
+    #splash {
+        background-image: url(splash.jpg);
+        width: 100%;
+        height: 58vh;
+        margin: 0;
+        background-attachment: inherit;
+        background-size: cover;
+    }
+
 }
 
 /*-------Desktop skærme-----*/
