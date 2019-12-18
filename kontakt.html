@@ -4,146 +4,131 @@
 
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Contact</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
 </head>
 
 <style>
-    .cv {
-        margin: 0;
-    }
+	.cv {
+		margin: 0;
+		display: none;
+	}
 
-    .accordion {
-        box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.08);
-        background-color: #f4f4f4;
-        color: #5f5f5f;
-        cursor: pointer;
-        padding: 18px;
-        width: 75%;
-        border: none;
-        outline: none;
-        font-size: 22px;
-        transition: 0.4;
-    }
+	.accordion {
+		box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.08);
+		background-color: #f4f4f4;
+		color: #5f5f5f;
+		cursor: pointer;
+		padding: 18px;
+		width: 75%;
+		border: none;
+		outline: none;
+		font-size: 22px;
+		transition: 0.4;
+	}
 
-    .active,
-    .accordion:hover {
-        background-color: #ccc;
-    }
+	.active,
+	.accordion:hover {
+		background-color: #ccc;
+	}
 
-    .accordion:after {
-        content: '\002B';
-        color: #777;
-        font-weight: bold;
-        float: right;
-    }
+	.accordion:after {
+		content: '\002B';
+		color: #777;
+		font-weight: bold;
+		float: right;
+	}
 
-    .active:after {
-        content: "\2212";
-    }
+	.active:after {
+		content: "\2212";
+	}
 
-    .panel {
-        background-color: white;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.2s ease-out;
-    }
+	.panel {
+		background-color: white;
+		max-height: 0;
+		overflow: hidden;
+		transition: max-height 0.2s ease-out;
+	}
 
-    @media screen and (max-width: 700px) {
-        .accordion {
-            width: 90%;
-        }
+	@media screen and (max-width: 700px) {
+		.accordion {
+			width: 90%;
+		}
 
-        #cv_knap {
-            text-align: center;
-        }
+		#cv_knap {
+			text-align: center;
+		}
 
-        .text p,
-        .title,
-        .text h4 {
-            text-align: start;
-        }
-    }
+		.text p,
+		.title,
+		.text h4 {
+			text-align: start;
+		}
+	}
+
 </style>
 
 <body>
-    <header id="myTopnav">
-        <div class="topnav">
-            <a href="index.html"></a>
-            <a href="kontakt.html">Contact</a>
-            <a href="materials.html">Materials</a>
-            <a href="galleri.html">Gallery</a>
-            <a href="index.html">Home</a>
-            <a href="javascript:void(0);" class="icon" onclick="burgerMenu()">
-                <i class="fa fa-bars"></i>
-            </a>
-        </div>
-        <div class="border_header"></div>
-    </header>
+	<header id="myTopnav">
+		<div class="topnav">
+			<a href="index.html"></a>
+			<a href="kontakt.html">Contact</a>
+			<a href="materials.html">Materials</a>
+			<a href="galleri.html">Gallery</a>
+			<a href="index.html">Home</a>
+			<a href="javascript:void(0);" class="icon" onclick="burgerMenu()">
+				<i class="fa fa-bars"></i>
+			</a>
+		</div>
+		<div class="border_header"></div>
+	</header>
 
-    <section id="kontakt_content">
-        <h1>Contact</h1>
+	<section id="kontakt_content">
+		<h1>Contact</h1>
 
-        <div id="top">
-            <div class="sectionwrapper">
+		<div id="top">
+			<div class="sectionwrapper">
 
-                <div class="kant">
-                    <div class="billede_peter"></div>
+				<div class="kant">
+					<div class="billede_peter"></div>
 
-                </div>
-                <div class="kant">
-                    <p>Peter Rothmeier Ravn <br>
-                        Lives and works in Copenhagen, Denmark</p>
-                    <div id="cv_knap">
-                        <button class="accordion">My CV</button>
-                        <section class="cv">
-                            <div class="panel">
-                                <!-- tekst område-->
-                            </div>
-                        </section>
-                    </div>
-                </div>
+				</div>
+				<div class="kant">
+					<p>Peter Rothmeier Ravn <br>
+						Lives and works in Copenhagen, Denmark</p>
+					<div id="cv_knap">
+						<button class="accordion">Peter Ravn's CV</button>
+						<section class="cv">
+							<div class="panel">
+								<!-- tekst område-->
+							</div>
+						</section>
+					</div>
+				</div>
 
-            </div>
-            <div class="sectionwrapper1">
-                <div id="sectionwrapper_kant">
-                    <div class="kant">
-                        <h2>Represented by</h2>
-                        <p>Store Kongensgade 3, Baghuset <br> 1264 Copenhagen, Denmark <br> <a href="tel:+45 29466331">Tel +45 29 46 63 31</a> <br> <a href="mailto: info@gallerikant.dk "> info@gallerikant.dk </a> <br> <a href="https://gallerikant.dk/">gallerikant.dk</a></p>
-                    </div>
-                    <div class="kant">
-                        <div class="kant_frame">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2249.411702033634!2d12.582965015392194!3d55.681829680534406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464b28cb90b57a73%3A0x8db1794921e8d4a6!2sGalleri%20KANT!5e0!3m2!1sda!2sdk!4v1576018081297!5m2!1sda!2sdk" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-        </div>
-
-    </section>
+			</div>
+			<div class="sectionwrapper1">
+				<div id="sectionwrapper_kant">
+					<div class="kant">
+						<h2>Represented by</h2>
+						<p>Store Kongensgade 3, Baghuset <br> 1264 Copenhagen, Denmark <br> <a href="tel:+45 29466331">Tel +45 29 46 63 31</a> <br> <a href="mailto: info@gallerikant.dk "> info@gallerikant.dk </a> <br> <a href="https://gallerikant.dk/">gallerikant.dk</a></p>
+					</div>
+					<div class="kant">
+						<div class="kant_frame">
+							<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2249.411702033634!2d12.582965015392194!3d55.681829680534406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464b28cb90b57a73%3A0x8db1794921e8d4a6!2sGalleri%20KANT!5e0!3m2!1sda!2sdk!4v1576018081297!5m2!1sda!2sdk" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+						</div>
+					</div>
+				</div>
+			</div>
 
 
+		</div>
 
-
-
-
-
-    <template class="template_cv">
-
-        <article>
-
-            <h2 class="title"></h2>
-            <p class="text"></p>
-
-        </article>
-
-    </template>
+	</section>
 
 
 
@@ -151,100 +136,120 @@
 
 
 
+	<template class="template_cv">
 
+		<article>
 
-    <footer id="info">
+			<h2 class="title"></h2>
+			<p class="text"></p>
 
-        <div class="kontakt">
-            <p><b>Telephone</b></p>
-            <a href="tel:+45 45261655">+45 26 16 25 55</a>
-        </div>
+		</article>
 
-        <div class="kontakt">
-            <p><b>Email</b></p>
-            <a href="mailto: mail@peterravn.dk">mail@peterravn.dk</a>
-        </div>
-
-        <div class="kontakt">
-            <p><b>Social media</b></p>
-            <a href="https://www.facebook.com/Peter-Rothmeier-Ravn-7157268355/" class="fa fa-facebook"></a>
-            <a href="https://www.instagram.com/peter_rothmeier_ravn/" class="fa fa-instagram"></a>
-
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
-
-    <script>
-        var acc = document.getElementsByClassName("accordion");
-        var i;
-
-        //idéen er at få tekst frem i bokse
-        let texts;
-        const url = "https://katjsoeg.dk/kea/2_sem_eksamen/designwp/wordpress/wp-json/wp/v2/materials";
-
-        document.addEventListener("DOMContentLoaded", start);
+	</template>
 
 
 
-        function start() {
-            console.log("start");
-            clickBox();
-            hentJson();
-        }
-
-        async function hentJson() {
-            const response = await fetch(url);
-            console.log(response);
-            texts = await response.json();
-            console.log(texts);
-            vis();
-
-        }
 
 
 
-        function vis() {
-            const template = document.querySelector(".template_cv");
-            const cv = document.querySelector(".cv");
-
-            texts.forEach(text => {
-
-                console.log(text);
-                const klon = template.cloneNode(true).content;
-
-                klon.querySelector(".title").innerHTML = text.title.rendered;
-                klon.querySelector(".text").innerHTML = text.content.rendered;
-                console.log(klon.querySelector(".text"));
-
-                cv.appendChild(klon);
-
-                //Nu er det ikke som at hente et billede. Titlen er title.rendered, men hovedtekst er content.rendered. InnerHTML gør at den ikke henter tag koden
-            });
-
-        }
 
 
-        function clickBox() {
 
-            for (i = 0; i < acc.length; i++) {
-                acc[i].addEventListener("click", function() {
-                    /* Toggle between adding and removing the "active" class,
-                    to highlight the button that controls the panel */
-                    this.classList.toggle("active");
+	<footer id="info">
 
-                    /* Toggle between hiding and showing the active panel */
-                    var panel = this.nextElementSibling;
+		<div class="kontakt">
+			<p><b>Telephone</b></p>
+			<a href="tel:+45 45261655">+45 26 16 25 55</a>
+		</div>
 
-                    if (panel.style.display === "block") {
-                        panel.style.display = "none";
-                    } else {
-                        panel.style.display = "block";
-                    }
-                });
-            }
-        }
-    </script>
+		<div class="kontakt">
+			<p><b>Email</b></p>
+			<a href="mailto: mail@peterravn.dk">mail@peterravn.dk</a>
+		</div>
+
+		<div class="kontakt">
+			<p><b>Social media</b></p>
+			<a href="https://www.facebook.com/Peter-Rothmeier-Ravn-7157268355/" class="fa fa-facebook"></a>
+			<a href="https://www.instagram.com/peter_rothmeier_ravn/" class="fa fa-instagram"></a>
+
+		</div>
+	</footer>
+
+	<script src="script.js"></script>
+
+	<script>
+		var acc = document.getElementsByClassName("accordion");
+
+		//idéen er at få tekst frem i bokse
+		let texts;
+		const url = "https://katjsoeg.dk/kea/2_sem_eksamen/designwp/wordpress/wp-json/wp/v2/materials";
+
+		document.addEventListener("DOMContentLoaded", start);
+
+
+
+		function start() {
+			console.log("start");
+			clickBox();
+			hentJson();
+		}
+
+		async function hentJson() {
+			const response = await fetch(url);
+			console.log(response);
+			texts = await response.json();
+			console.log(texts);
+			vis();
+
+		}
+
+
+
+		function vis() {
+			const template = document.querySelector(".template_cv");
+			const cv = document.querySelector(".cv");
+
+			texts.forEach(text => {
+
+				console.log(text);
+				const klon = template.cloneNode(true).content;
+
+				klon.querySelector(".title").innerHTML = text.title.rendered;
+				klon.querySelector(".text").innerHTML = text.content.rendered;
+				console.log(klon.querySelector(".text"));
+
+				cv.appendChild(klon);
+
+				//Nu er det ikke som at hente et billede. Titlen er title.rendered, men hovedtekst er content.rendered. InnerHTML gør at den ikke henter tag koden
+			});
+
+		}
+
+		var i;
+
+		function clickBox() {
+
+			//			let panel = document.querySelector("article").style.display = "none";
+
+			for (i = 0; i < acc.length; i++) {
+				acc[i].addEventListener("click", function() {
+					/* Toggle between adding and removing the "active" class,
+					to highlight the button that controls the panel */
+					this.classList.toggle("active");
+
+					/* Toggle between hiding and showing the active panel */
+					panel = this.nextElementSibling;
+
+					if (panel.style.display == "block") {
+						panel.style.display = "none";
+					} else {
+						panel.style.display = "block";
+					}
+				});
+			}
+		}
+
+	</script>
 
 </body>
 
