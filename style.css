@@ -136,6 +136,17 @@ a.fa-instagram:before {
     margin: 1vw;
 }
 
+#video_content {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#video_content iframe {
+    width: 650px;
+    height: 400px;
+    box-shadow: 0 2px 5px 2px rgba(0, 0, 0, 0.10);
+}
+
 
 /*----------forside slut---------*/
 
@@ -267,6 +278,11 @@ a.fa-instagram:before {
         margin: 0;
         background-attachment: inherit;
         background-size: cover;
+    }
+
+    #video_content iframe {
+        width: 650px;
+        height: 300px;
     }
 
 }
