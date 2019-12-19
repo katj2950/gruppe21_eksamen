@@ -278,6 +278,7 @@ a.fa-instagram:before {
         margin: 0;
         background-attachment: inherit;
         background-size: cover;
+        background-position: center;
     }
 
     #video_content iframe {
