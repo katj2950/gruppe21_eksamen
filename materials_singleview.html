@@ -2,119 +2,123 @@
 <html lang="da">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Materials</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Materials</title>
+	<link rel="stylesheet" href="style.css">
+	<meta name="author" content="Gruppe 21, Hold A">
+	<meta name="keywords" content="Peter Ravn, Peter Rothmeier Ravn, Galleri Kant, gallery, painting, press release, pressemeddelse, art, art exhibit, exhibit, udstilling">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
 
-    <style>
-        body {
-            margin: 0;
-        }
+	<style>
+		body {
+			margin: 0;
+		}
 
-        footer {
-            margin-top: 12vw;
-        }
+		footer {
+			margin-top: 12vw;
+		}
 
-        img {
-            width: 100%;
-        }
+		img {
+			width: 100%;
+		}
 
-        #single {
-            display: flex;
-            margin: 5vw;
-            border-radius: 1%;
-            background-color: rgba(192, 198, 163, 0.10);
-        }
+		#single {
+			display: flex;
+			margin: 5vw;
+			border-radius: 1%;
+			background-color: rgba(192, 198, 163, 0.10);
+		}
 
-        .indhold {
-            width: 60vw;
-            padding: 15px;
-            color: #403f3f;
-        }
+		.indhold {
+			width: 60vw;
+			padding: 15px;
+			color: #403f3f;
+		}
 
 
-        @media screen and (max-width: 700px) {
-            .indhold {
-                width: 85%;
-            }
-        }
-    </style>
+		@media screen and (max-width: 700px) {
+			.indhold {
+				width: 85%;
+			}
+		}
+
+	</style>
 </head>
 
 <body>
-    <header id="myTopnav">
-        <div class="topnav">
-            <a href="index.html"></a>
-            <a href="kontakt.html">Contact</a>
-            <a href="materials.html">Materials</a>
-            <a href="galleri.html">Gallery</a>
-            <a href="index.html">Home</a>
-            <a href="javascript:void(0);" class="icon" onclick="burgerMenu()">
-                <i class="fa fa-bars"></i>
-            </a>
-        </div>
-        <div class="border_header"></div>
-    </header>
+	<header id="myTopnav">
+		<div class="topnav">
+			<a href="index.html"></a>
+			<a href="kontakt.html">Contact</a>
+			<a href="materials.html">Materials</a>
+			<a href="galleri.html">Gallery</a>
+			<a href="index.html">Home</a>
+			<a href="javascript:void(0);" class="icon" onclick="burgerMenu()">
+				<i class="fa fa-bars"></i>
+			</a>
+		</div>
+		<div class="border_header"></div>
+	</header>
 
 
 
-    <main id="single">
-        <section class="indhold">
-            <article>
-                <h2 class="title"></h2>
-                <p class="text"></p>
-            </article>
-        </section>
-    </main>
+	<main id="single">
+		<section class="indhold">
+			<article>
+				<h2 class="title"></h2>
+				<p class="text"></p>
+			</article>
+		</section>
+	</main>
 
-    <footer id="info">
+	<footer id="info">
 
-        <div class="kontakt">
-            <p><b>Telephone</b></p>
-            <a href="tel:+45 45261655">+45 26 16 25 55</a>
-        </div>
+		<div class="kontakt">
+			<p><b>Telephone</b></p>
+			<a href="tel:+45 45261655">+45 26 16 25 55</a>
+		</div>
 
-        <div class="kontakt">
-            <p><b>Email</b></p>
-            <a href="mailto: mail@peterravn.dk">mail@peterravn.dk</a>
-        </div>
+		<div class="kontakt">
+			<p><b>Email</b></p>
+			<a href="mailto: mail@peterravn.dk">mail@peterravn.dk</a>
+		</div>
 
-        <div class="kontakt">
-            <p><b>Social media</b></p>
-            <a href="https://www.facebook.com/Peter-Rothmeier-Ravn-7157268355/" class="fa fa-facebook"></a>
-            <a href="https://www.instagram.com/peter_rothmeier_ravn/" class="fa fa-instagram"></a>
+		<div class="kontakt">
+			<p><b>Social media</b></p>
+			<a href="https://www.facebook.com/Peter-Rothmeier-Ravn-7157268355/" class="fa fa-facebook"></a>
+			<a href="https://www.instagram.com/peter_rothmeier_ravn/" class="fa fa-instagram"></a>
 
-        </div>
-    </footer>
-    <script src="script.js"></script>
+		</div>
+	</footer>
+	<script src="script.js"></script>
 
-    <script>
-        let urlParams = new URLSearchParams(window.location.search);
-        let id = urlParams.get("id");
-        let text;
-        document.addEventListener("DOMContentLoaded", getJson);
+	<script>
+		let urlParams = new URLSearchParams(window.location.search);
+		let id = urlParams.get("id");
+		let text;
+		document.addEventListener("DOMContentLoaded", getJson);
 
-        async function getJson() {
-            let jsonData = await fetch(`https://katjsoeg.dk/kea/2_sem_eksamen/designwp/wordpress/wp-json/wp/v2/texts/${id}`);
-            text = await jsonData.json();
-            console.log(text);
-            visText();
-        }
+		async function getJson() {
+			let jsonData = await fetch(`https://katjsoeg.dk/kea/2_sem_eksamen/designwp/wordpress/wp-json/wp/v2/texts/${id}`);
+			text = await jsonData.json();
+			console.log(text);
+			visText();
+		}
 
 
-        function visText() {
+		function visText() {
 
-            document.querySelector(".title").innerHTML = text.title.rendered;
-            document.querySelector(".text").innerHTML = text.content.rendered;
+			document.querySelector(".title").innerHTML = text.title.rendered;
+			document.querySelector(".text").innerHTML = text.content.rendered;
 
-        }
-        document.querySelector(".luk").addEventListener("click", () => {
-            history.back();
-        })
-    </script>
+		}
+		document.querySelector(".luk").addEventListener("click", () => {
+			history.back();
+		})
+
+	</script>
 </body>
 
 </html>
